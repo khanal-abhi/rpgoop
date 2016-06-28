@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     @IBAction func onChestTapped(sender: AnyObject) {
         messageLabel.text = "You receieve \(enemy.loot[Int(arc4random_uniform(UInt32(enemy.loot.count)))])";
         chestButton.hidden = true;
+        sleep(3);
+        performSegueWithIdentifier("gameOver", sender: self);
     }
     
     @IBAction func playerAttacked(sender: AnyObject) {
@@ -75,6 +77,9 @@ class ViewController: UIViewController {
         player.attemptAttack(ap);
         if(!player.isAlive){
             //TODO: Game Over Screen
+            messageLabel.text = "Alas! \(enemy.type) has defeated \(player.name). Game Over!";
+            sleep(3);
+            performSegueWithIdentifier("gameOver", sender: self);
         
         }
         pDamage = ap;
