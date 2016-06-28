@@ -10,5 +10,15 @@ import Foundation
 
 class DevilWizard: Enemy {
     
+    override var loot: [String] {
+        get {
+            return ["Dark amulet", "salted pork"];
+        }
+    }
     
+    override var type: String {
+        get {
+            return "Devil Wizard";
+        }
+    }
 }
