@@ -125,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attackButton" destination="KTi-b0-vHw" id="oqi-aG-It1"/>
                         <outlet property="chestButton" destination="WE6-FM-Pva" id="bSC-rQ-Nly"/>
                         <outlet property="enemyHpLabel" destination="uSg-GT-PJC" id="BBF-xY-hk1"/>
                         <outlet property="enemyImage" destination="45M-7O-xTh" id="a4v-EW-JgW"/>

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var enemyHpLabel: UILabel!
     @IBOutlet weak var enemyImage: UIImageView!
     @IBOutlet weak var chestButton: UIButton!
+    @IBOutlet weak var attackButton: UIButton!
     
     var player: Player!
     var enemy: Enemy!
@@ -25,8 +26,9 @@ class ViewController: UIViewController {
     @IBAction func onChestTapped(sender: AnyObject) {
         messageLabel.text = "You receieve \(enemy.loot[Int(arc4random_uniform(UInt32(enemy.loot.count)))])";
         chestButton.hidden = true;
-        sleep(3);
-        performSegueWithIdentifier("gameOver", sender: self);
+        segueAfterDelay(3){
+           self.performSegueWithIdentifier("gameOver", sender: self);
+        }
     }
     
     @IBAction func playerAttacked(sender: AnyObject) {
@@ -65,6 +67,7 @@ class ViewController: UIViewController {
         if(!enemy.isAlive){
             enemyImage.hidden = true;
             chestButton.hidden = false;
+            attackButton.hidden = true;
             
             messageLabel.text = "\(player.name) kills \(enemy.type) with \(ap) damage!";
         }
@@ -78,8 +81,10 @@ class ViewController: UIViewController {
         if(!player.isAlive){
             //TODO: Game Over Screen
             messageLabel.text = "Alas! \(enemy.type) has defeated \(player.name). Game Over!";
-            sleep(3);
-            performSegueWithIdentifier("gameOver", sender: self);
+            segueAfterDelay(3){
+                self.performSegueWithIdentifier("gameOver", sender: self);
+
+            }
         
         }
         pDamage = ap;
@@ -100,6 +105,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func segueAfterDelay(delay: Double, closure: () -> ()){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
     }
 
 
