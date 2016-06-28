@@ -17,6 +17,7 @@
 		381362A01D221024008CBB80 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813629F1D221024008CBB80 /* Enemy.swift */; };
 		381362A21D2211A1008CBB80 /* Kimara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381362A11D2211A1008CBB80 /* Kimara.swift */; };
 		381362A41D221354008CBB80 /* DevilWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381362A31D221354008CBB80 /* DevilWizard.swift */; };
+		381362A61D222A6E008CBB80 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381362A51D222A6E008CBB80 /* GameOverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3813629F1D221024008CBB80 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		381362A11D2211A1008CBB80 /* Kimara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kimara.swift; sourceTree = "<group>"; };
 		381362A31D221354008CBB80 /* DevilWizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevilWizard.swift; sourceTree = "<group>"; };
+		381362A51D222A6E008CBB80 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				3813628F1D220C67008CBB80 /* Assets.xcassets */,
 				381362911D220C67008CBB80 /* LaunchScreen.storyboard */,
 				381362941D220C67008CBB80 /* Info.plist */,
+				381362A51D222A6E008CBB80 /* GameOverViewController.swift */,
 			);
 			path = rpgoop;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				381362A01D221024008CBB80 /* Enemy.swift in Sources */,
 				381362A41D221354008CBB80 /* DevilWizard.swift in Sources */,
 				381362A21D2211A1008CBB80 /* Kimara.swift in Sources */,
+				381362A61D222A6E008CBB80 /* GameOverViewController.swift in Sources */,
 				3813629B1D220D38008CBB80 /* Character.swift in Sources */,
 				3813628B1D220C67008CBB80 /* ViewController.swift in Sources */,
 				381362891D220C67008CBB80 /* AppDelegate.swift in Sources */,

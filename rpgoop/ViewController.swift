@@ -19,12 +19,16 @@ class ViewController: UIViewController {
     var player: Player!
     var enemy: Enemy!
     
+    var pDamage: Int?
+    var eDamage: Int?
+    
     @IBAction func onChestTapped(sender: AnyObject) {
+        messageLabel.text = "You receieve \(enemy.loot[Int(arc4random_uniform(UInt32(enemy.loot.count)))])";
+        chestButton.hidden = true;
     }
     
     @IBAction func playerAttacked(sender: AnyObject) {
         playerAttack();
-        
         enemyAttack();
     }
     
@@ -36,7 +40,6 @@ class ViewController: UIViewController {
         player = Player(name: "Jhonny Guitar", hp: 110, ap: 20);
         generateRandomEnemy();
         messageLabel.text = "\(player.name) encounters \(enemy.type)!";
-        updateStuff();
     }
     
     func generateRandomEnemy(){
@@ -51,15 +54,18 @@ class ViewController: UIViewController {
         }
     }
     
+    
     func playerAttack(){
         let ap = Int(arc4random_uniform(UInt32(player.attackPower)));
-        enemy.attemptAttack(ap);
-        var verb: String = "attacks";
-        if(!enemy.isAlive){
-            verb = "kills";
+        if(enemy.attemptAttack(ap)){
+            eDamage = ap;
         }
-        updateStuff();
-        messageLabel.text = "\(player.name) \(verb) \(enemy.type) with \(ap) damage";
+        if(!enemy.isAlive){
+            enemyImage.hidden = true;
+            chestButton.hidden = false;
+            
+            messageLabel.text = "\(player.name) kills \(enemy.type) with \(ap) damage!";
+        }
         
     }
     
@@ -67,17 +73,22 @@ class ViewController: UIViewController {
         
         let ap = Int(arc4random_uniform(UInt32(enemy.attackPower)));
         player.attemptAttack(ap);
-        var verb: String = "attacks";
         if(!player.isAlive){
-            verb = "kills";
+            //TODO: Game Over Screen
+        
         }
+        pDamage = ap;
         updateStuff();
-        messageLabel.text = "\(enemy.type) \(verb) \(player.name) with \(ap) damage";
     }
     
     func updateStuff(){
         playerHpLabel.text = "\(player.hp) HP";
         enemyHpLabel.text = "\(enemy.hp) HP";
+        
+        let ed: Int = eDamage ?? 0;
+        let pd: Int = pDamage ?? 0;
+        
+        messageLabel.text = "\(player.name) does \(ed) damage and \(enemy.type) does \(pd) damage!"
         
     }
 

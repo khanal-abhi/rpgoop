@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gXZ-mb-qGl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -130,11 +130,89 @@
                         <outlet property="enemyImage" destination="45M-7O-xTh" id="a4v-EW-JgW"/>
                         <outlet property="messageLabel" destination="VCH-ts-Sxl" id="Nvk-B6-Dp4"/>
                         <outlet property="playerHpLabel" destination="OKc-aI-ibU" id="8es-pt-VRT"/>
+                        <segue destination="gXZ-mb-qGl" kind="show" identifier="gameOver" id="VNW-hp-s2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="307" y="354"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="NGI-L3-Vds">
+            <objects>
+                <viewController id="gXZ-mb-qGl" customClass="GameOverViewController" customModule="rpgoop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MG1-VH-dQL"/>
+                        <viewControllerLayoutGuide type="bottom" id="E69-p1-hKw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QVL-2F-Pjd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="zD9-lk-Lue">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="print" translatesAutoresizingMaskIntoConstraints="NO" id="h3b-Ts-sJt">
+                                <rect key="frame" x="20" y="28" width="560" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h3b-Ts-sJt" secondAttribute="height" multiplier="560:87" id="w0e-ug-v4R"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WHm-2C-ur5">
+                                <rect key="frame" x="20" y="343" width="560" height="237"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player" translatesAutoresizingMaskIntoConstraints="NO" id="Dqo-3J-CyR">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="237"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attack" translatesAutoresizingMaskIntoConstraints="NO" id="jsK-41-L0Q">
+                                        <rect key="frame" x="280" y="0.0" width="280" height="237"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RPGOOP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFO-mJ-UeB">
+                                <rect key="frame" x="20" y="28" width="560" height="87"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.99607843137254903" green="0.76470588235294112" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzZ-Ue-Ltt">
+                                <rect key="frame" x="262" y="539" width="76" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="BEGIN!">
+                                    <color key="titleColor" red="0.99607843137254903" green="0.76470588235294112" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="gXZ-mb-qGl" eventType="touchUpInside" id="faZ-jl-hdD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zD9-lk-Lue" firstAttribute="top" secondItem="QVL-2F-Pjd" secondAttribute="top" id="BQn-Pd-F4q"/>
+                            <constraint firstItem="SFO-mJ-UeB" firstAttribute="trailing" secondItem="h3b-Ts-sJt" secondAttribute="trailing" id="Cqm-aV-TDD"/>
+                            <constraint firstAttribute="trailing" secondItem="zD9-lk-Lue" secondAttribute="trailing" id="ET8-L4-Uhk"/>
+                            <constraint firstItem="SFO-mJ-UeB" firstAttribute="top" secondItem="h3b-Ts-sJt" secondAttribute="top" id="HVr-0e-269"/>
+                            <constraint firstItem="QzZ-Ue-Ltt" firstAttribute="bottom" secondItem="WHm-2C-ur5" secondAttribute="bottom" id="OD5-yB-S9H"/>
+                            <constraint firstItem="E69-p1-hKw" firstAttribute="top" secondItem="zD9-lk-Lue" secondAttribute="bottom" id="Pcj-lC-uae"/>
+                            <constraint firstItem="WHm-2C-ur5" firstAttribute="leading" secondItem="QVL-2F-Pjd" secondAttribute="leadingMargin" id="Q1U-x9-jl8"/>
+                            <constraint firstItem="E69-p1-hKw" firstAttribute="top" secondItem="QzZ-Ue-Ltt" secondAttribute="bottom" constant="20" id="U9c-o2-E1H"/>
+                            <constraint firstItem="SFO-mJ-UeB" firstAttribute="leading" secondItem="h3b-Ts-sJt" secondAttribute="leading" id="Wes-ZY-IS8"/>
+                            <constraint firstItem="zD9-lk-Lue" firstAttribute="leading" secondItem="QVL-2F-Pjd" secondAttribute="leading" id="YxH-Zz-onZ"/>
+                            <constraint firstItem="h3b-Ts-sJt" firstAttribute="trailing" secondItem="QVL-2F-Pjd" secondAttribute="trailingMargin" id="Z52-YG-i2W"/>
+                            <constraint firstItem="SFO-mJ-UeB" firstAttribute="bottom" secondItem="h3b-Ts-sJt" secondAttribute="bottom" id="arx-f7-SYz"/>
+                            <constraint firstItem="QzZ-Ue-Ltt" firstAttribute="centerX" secondItem="QVL-2F-Pjd" secondAttribute="centerX" id="cYj-yb-FZK"/>
+                            <constraint firstItem="h3b-Ts-sJt" firstAttribute="top" secondItem="MG1-VH-dQL" secondAttribute="bottom" constant="8" id="dSC-L2-Ozm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WHm-2C-ur5" secondAttribute="trailing" id="yDg-X8-37F"/>
+                            <constraint firstItem="h3b-Ts-sJt" firstAttribute="leading" secondItem="QVL-2F-Pjd" secondAttribute="leadingMargin" id="yX7-pi-naR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="startGame" id="4Xs-w8-yhM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Yg-8p-5Tz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="1166"/>
         </scene>
     </scenes>
     <resources>
