@@ -29,6 +29,9 @@
                                     <constraint firstAttribute="height" constant="97" id="GSn-Dx-FXJ"/>
                                 </constraints>
                                 <state key="normal" image="chest"/>
+                                <connections>
+                                    <action selector="onChestTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cx-Xs-UbG"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="LEY-CI-lVb">
                                 <rect key="frame" x="0.0" y="536" width="600" height="128"/>
@@ -82,6 +85,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-b0-vHw">
+                                <rect key="frame" x="504" y="507" width="76" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="cVi-7J-qDd"/>
+                                    <constraint firstAttribute="height" constant="85" id="vgM-lK-gWj"/>
+                                </constraints>
+                                <state key="normal" image="attack"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -92,6 +103,7 @@
                             <constraint firstItem="Wf6-Kt-Hj6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8w5-fK-mJA"/>
                             <constraint firstAttribute="trailing" secondItem="Wf6-Kt-Hj6" secondAttribute="trailing" id="A10-SA-Z1d"/>
                             <constraint firstItem="LEY-CI-lVb" firstAttribute="top" secondItem="EjL-CZ-pJt" secondAttribute="bottom" constant="5" id="BHD-JK-q3r"/>
+                            <constraint firstItem="KTi-b0-vHw" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FdT-7Y-OBp"/>
                             <constraint firstItem="OKc-aI-ibU" firstAttribute="top" secondItem="EjL-CZ-pJt" secondAttribute="top" id="Ha8-xF-2pX"/>
                             <constraint firstItem="VCH-ts-Sxl" firstAttribute="bottom" secondItem="wW9-7P-XpM" secondAttribute="bottom" id="Hze-vQ-FX0"/>
                             <constraint firstItem="wW9-7P-XpM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="IDp-Bi-LYK"/>
@@ -105,6 +117,7 @@
                             <constraint firstItem="WE6-FM-Pva" firstAttribute="centerY" secondItem="45M-7O-xTh" secondAttribute="centerY" id="Ygm-bd-N7u"/>
                             <constraint firstAttribute="trailing" secondItem="45M-7O-xTh" secondAttribute="trailing" constant="56" id="bdl-xk-LCm"/>
                             <constraint firstItem="OKc-aI-ibU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="122" id="fhC-kI-OzB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KTi-b0-vHw" secondAttribute="bottom" constant="8" id="jwf-NQ-XhQ"/>
                             <constraint firstItem="EjL-CZ-pJt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="31" id="oN7-Ll-viJ"/>
                             <constraint firstItem="VCH-ts-Sxl" firstAttribute="top" secondItem="wW9-7P-XpM" secondAttribute="top" id="oQK-et-vvZ"/>
                             <constraint firstItem="wW9-7P-XpM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="svB-cE-RGJ"/>
@@ -113,6 +126,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chestButton" destination="WE6-FM-Pva" id="bSC-rQ-Nly"/>
                         <outlet property="enemyHpLabel" destination="uSg-GT-PJC" id="BBF-xY-hk1"/>
                         <outlet property="enemyImage" destination="45M-7O-xTh" id="a4v-EW-JgW"/>
                         <outlet property="messageLabel" destination="VCH-ts-Sxl" id="Nvk-B6-Dp4"/>
@@ -125,6 +139,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="attack" width="99" height="111"/>
         <image name="bg" width="384" height="512"/>
         <image name="chest" width="196" height="220"/>
         <image name="enem1" width="287" height="243"/>
