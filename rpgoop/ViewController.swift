@@ -22,12 +22,21 @@ class ViewController: UIViewController {
     @IBAction func onChestTapped(sender: AnyObject) {
     }
     
+    @IBAction func playerAttacked(sender: AnyObject) {
+        playerAttack();
+        
+        enemyAttack();
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        player = Player(name: "Jhonny Guitar", hp: 110, ap: 20);
-        playerHpLabel.text = "\(player.hp) HP";
+        chestButton.hidden = true;
         
+        player = Player(name: "Jhonny Guitar", hp: 110, ap: 20);
+        generateRandomEnemy();
+        messageLabel.text = "\(player.name) encounters \(enemy.type)!";
+        updateStuff();
     }
     
     func generateRandomEnemy(){
@@ -40,6 +49,36 @@ class ViewController: UIViewController {
         default:
             enemy = DevilWizard(hp: 100, ap: 10);
         }
+    }
+    
+    func playerAttack(){
+        let ap = Int(arc4random_uniform(UInt32(player.attackPower)));
+        enemy.attemptAttack(ap);
+        var verb: String = "attacks";
+        if(!enemy.isAlive){
+            verb = "kills";
+        }
+        updateStuff();
+        messageLabel.text = "\(player.name) \(verb) \(enemy.type) with \(ap) damage";
+        
+    }
+    
+    func enemyAttack(){
+        
+        let ap = Int(arc4random_uniform(UInt32(enemy.attackPower)));
+        player.attemptAttack(ap);
+        var verb: String = "attacks";
+        if(!player.isAlive){
+            verb = "kills";
+        }
+        updateStuff();
+        messageLabel.text = "\(enemy.type) \(verb) \(player.name) with \(ap) damage";
+    }
+    
+    func updateStuff(){
+        playerHpLabel.text = "\(player.hp) HP";
+        enemyHpLabel.text = "\(enemy.hp) HP";
+        
     }
 
     override func didReceiveMemoryWarning() {

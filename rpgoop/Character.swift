@@ -16,7 +16,7 @@ class Character {
     
     var attackPower: Int {
         get {
-            return _hp;
+            return _ap;
         }
     }
     
