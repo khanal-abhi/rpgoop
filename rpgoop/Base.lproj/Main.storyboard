@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -27,35 +29,65 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player" translatesAutoresizingMaskIntoConstraints="NO" id="EjL-CZ-pJt">
-                                <rect key="frame" x="31" y="407" width="97" height="128"/>
+                                <rect key="frame" x="31" y="403" width="97" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="8jz-cH-2z2"/>
                                     <constraint firstAttribute="height" constant="128" id="n0a-Le-bvw"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enem1" translatesAutoresizingMaskIntoConstraints="NO" id="45M-7O-xTh">
+                                <rect key="frame" x="388" y="434" width="156" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="ELi-e7-g2p"/>
+                                    <constraint firstAttribute="height" constant="97" id="a6e-kh-9sl"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="print" translatesAutoresizingMaskIntoConstraints="NO" id="wW9-7P-XpM">
+                                <rect key="frame" x="20" y="30" width="560" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wW9-7P-XpM" secondAttribute="height" multiplier="560:83" id="3ON-jJ-dtx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player attacked wild kimara!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCH-ts-Sxl">
+                                <rect key="frame" x="20" y="30" width="560" height="83"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.99607843137254903" green="0.76470588235294112" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Wf6-Kt-Hj6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0Ao-Ab-xNX"/>
+                            <constraint firstItem="VCH-ts-Sxl" firstAttribute="trailing" secondItem="wW9-7P-XpM" secondAttribute="trailing" id="6Y5-8a-ixe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LEY-CI-lVb" secondAttribute="bottom" constant="-64" id="7IO-0Q-dcI"/>
                             <constraint firstItem="Wf6-Kt-Hj6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8w5-fK-mJA"/>
                             <constraint firstAttribute="trailing" secondItem="Wf6-Kt-Hj6" secondAttribute="trailing" id="A10-SA-Z1d"/>
-                            <constraint firstItem="LEY-CI-lVb" firstAttribute="top" secondItem="EjL-CZ-pJt" secondAttribute="bottom" constant="1" id="BHD-JK-q3r"/>
+                            <constraint firstItem="LEY-CI-lVb" firstAttribute="top" secondItem="EjL-CZ-pJt" secondAttribute="bottom" constant="5" id="BHD-JK-q3r"/>
+                            <constraint firstItem="VCH-ts-Sxl" firstAttribute="bottom" secondItem="wW9-7P-XpM" secondAttribute="bottom" id="Hze-vQ-FX0"/>
+                            <constraint firstItem="wW9-7P-XpM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="IDp-Bi-LYK"/>
+                            <constraint firstItem="wW9-7P-XpM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="O96-ek-d1s"/>
+                            <constraint firstItem="VCH-ts-Sxl" firstAttribute="leading" secondItem="wW9-7P-XpM" secondAttribute="leading" id="ReR-3O-bVw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wf6-Kt-Hj6" secondAttribute="bottom" id="S0c-EQ-rPV"/>
+                            <constraint firstItem="LEY-CI-lVb" firstAttribute="top" secondItem="45M-7O-xTh" secondAttribute="bottom" constant="5" id="U5W-Sg-2Ho"/>
                             <constraint firstAttribute="trailing" secondItem="LEY-CI-lVb" secondAttribute="trailing" id="WKf-GT-4xO"/>
+                            <constraint firstAttribute="trailing" secondItem="45M-7O-xTh" secondAttribute="trailing" constant="56" id="bdl-xk-LCm"/>
                             <constraint firstItem="EjL-CZ-pJt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="31" id="oN7-Ll-viJ"/>
+                            <constraint firstItem="VCH-ts-Sxl" firstAttribute="top" secondItem="wW9-7P-XpM" secondAttribute="top" id="oQK-et-vvZ"/>
+                            <constraint firstItem="wW9-7P-XpM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="svB-cE-RGJ"/>
                             <constraint firstItem="LEY-CI-lVb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xL3-v7-i99"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="399"/>
+            <point key="canvasLocation" x="307" y="354"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg" width="384" height="512"/>
+        <image name="enem1" width="287" height="243"/>
         <image name="ground" width="384" height="82"/>
         <image name="player" width="178" height="237"/>
+        <image name="print" width="275" height="41"/>
     </resources>
 </document>
